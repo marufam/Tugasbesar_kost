@@ -1,0 +1,21 @@
+allprojects {
+  repositories {
+    jcenter()
+  }
+}
+
+ext {
+
+  //Libraries
+  supportVersion = "24.2.0"
+  butterKnifeVersion = "8.4.0"
+  picassoVersion = "2.5.2"
+
+  presentationDependencies =
+      [supportAppCompat   : "com.android.support:appcompat-v7:${supportVersion}",
+       support            : "com.android.support:support-v4:${supportVersion}",
+       supportDesign      : "com.android.support:design:${supportVersion}",
+       butterknife        : "com.jakewharton:butterknife:${butterKnifeVersion}",
+       butterknifeCompiler: "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+       picasso            : "com.squareup.picasso:picasso:${picassoVersion}"]
+}

@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.getkeepsafe.dexcount'
+
+android {
+  signingConfigs {
+    config {}
+  }
+  compileSdkVersion 24
+  buildToolsVersion "24.0.2"
+  defaultConfig {
+    minSdkVersion 15
+    targetSdkVersion 24
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+  productFlavors {
+    premium {
+      applicationId "com.pratamawijaya.androidmaterial.premium"
+      versionCode 1
+      versionName "1.0-premium"
+    }
+    free {
+      applicationId "com.pratamawijaya.androidmaterial.free"
+      versionCode 2
+      versionName "1.0-free"
+    }
+  }
+}
+
+dependencies {
+  compile fileTree(include: ['*.jar'], dir: 'libs')
+  testCompile 'junit:junit:4.12'
+  compile presentationDependencies.supportAppCompat
+  compile presentationDependencies.supportDesign
+  compile presentationDependencies.support
+  compile presentationDependencies.butterknife
+  compile presentationDependencies.picasso
+  apt presentationDependencies.butterknifeCompiler
+}
